@@ -1,0 +1,280 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  display: flex;
+  height: 110vh;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #137494;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgb(1, 1, 1, 0.8);
+  border-bottom: 1px solid #137494;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo img {
+  width: 3rem;
+}
+.navbar .navbar-logo {
+  top: 0;
+  color: #fff;
+  font-style: italic;
+  font-size: 1.6rem;
+  margin-left: 10px;
+}
+.navbar .navbar-nav a {
+  color: white;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1.3rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: #137494;
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #137494;
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+  color: white;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: #fff;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 25px 30px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+}
+.container form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0 12px 0;
+}
+form .form-group {
+  margin-bottom: 15px;
+  width: 40%;
+}
+form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.form-group input,
+select {
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 15px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.form-group .tanggal {
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 15px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.form-group select {
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 15px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.form-group input:focus,
+.form-group input:valid,
+select:focus,
+select:valid {
+  border-color: #137494;
+}
+
+/* Memberikan warna pada border untuk input yang kosong */
+.form-group input:invalid,
+.form-group select:invalid {
+  border-color: red; /* Ganti dengan warna yang diinginkan untuk input kosong */
+}
+form .button {
+  height: 40px;
+  width: 100%;
+  margin: 40px 0;
+}
+form .button input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: pointer;
+  background: rgb(209, 82, 248);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+}
+form .button input:hover {
+  background: rgb(167, 70, 197);
+}
+/* menghilangkan panah pada numerik */
+/* Gaya untuk panah penambah dan pengurang pada input tipe nomor */
+.form-group input[type="number"] {
+  /* Menghilangkan tampilan default panah penambah dan pengurang */
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Gaya untuk panah penambah dan pengurang */
+.form-group input[type="number"]::-webkit-inner-spin-button,
+.form-group input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Gaya untuk panah penambah dan pengurang menggunakan pseudo-element after */
+.form-group input[type="number"]::after {
+  content: "▲▼"; /* Isi karakter panah penambah dan pengurang */
+  font-size: 14px; /* Ukuran font panah */
+  color: black; /* Warna panah */
+  position: absolute; /* Posisi absolut */
+  right: 5px; /* Posisi panah ke kanan */
+  top: 50%; /* Posisi panah di tengah vertikal */
+  transform: translateY(-50%); /* Menyesuaikan posisi panah vertikal */
+  pointer-events: none; /* Mencegah interaksi dengan panah */
+}
+
+/* Gaya untuk input tipe nomor saat dalam fokus */
+.form-group input[type="number"]:focus {
+  border-color: aqua; /* Atur warna border saat input dalam fokus */
+}
+
+/* Media Queris */
+
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+  .container {
+    max-width: 100%;
+  }
+  form .form-group {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .container form {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+  .container form::-webkit-scrollbar {
+    width: 0;
+  }
+  form .button {
+    margin: 20px 0;
+  }
+
+  /* Navbar */
+  #hamburger-menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: black;
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+}
+/* Phone */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}

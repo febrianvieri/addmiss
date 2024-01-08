@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrasi</title>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <nav class="navbar">
+      <a href="#" class="navbar-logo"
+        ><img src="../img/logo.png" alt="" />Klinik Pratama Wiwied Asari</a
+      >
+      <div class="navbar-nav">
+        <a id="logout" href="#">Logout</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <div class="container">
+      <div class="title">Registrasi</div>
+      <form action="" autocomplete="off">
+        <div class="form-group">
+          <label for="nama">Nama Lengkap</label>
+          <input
+            type="text"
+            placeholder="Masukan Nama Lengkap"
+            autofocus
+            required
+            oninvalid="this.setCustomValidity('Ini harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="form-group">
+          <label for="tanggal-lahir">Tanggal Lahir</label>
+          <input
+            class="tanggal"
+            type="date"
+            required
+            oninvalid="this.setCustomValidity('Ini harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="form-group">
+          <label for="jenis-kelamin">Jenis Kelamin</label>
+          <select required>
+            <option value="" disabled selected>Jenis Kelamin</option>
+            <option value="laki-laki">Laki-laki</option>
+            <option value="perempuan">Perempuan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="alamat">Alamat</label>
+          <input
+            type="text"
+            placeholder="Masukan Alamat"
+            required
+            oninvalid="this.setCustomValidity('Ini harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="form-group">
+          <label for="nik">NIK</label>
+          <input
+            type="text"
+            placeholder="Masukan NIK"
+            required
+            oninvalid="this.setCustomValidity('Ini harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="form-group">
+          <label for="no-tel">No Telpon</label>
+          <input
+            type="tel"
+            placeholder="Masukan Nomor Telpon"
+            required
+            oninvalid="this.setCustomValidity('Ini harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="form-group">
+          <label for="Tanggal-Daftar">Tanggal Daftar</label>
+          <input
+            class="tanggal"
+            type="date"
+            required
+            oninvalid="this.setCustomValidity('Ini harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="form-group">
+          <label>Kebutuhan Medis</label>
+          <select
+            class="kenutuhan"
+            required
+            oninvalid="this.setCustomValidity('Ini harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          >
+            <option value="" disabled selected>Kebutuhan Medis</option>
+            <option value="imunisasi">Imunisasi</option>
+            <option value="kb">KB</option>
+            <option value="anc">ANC</option>
+            <option value="umum">Umum</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Pihak Medis</label>
+          <select
+            required
+            oninvalid="this.setCustomValidity('Ini harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          >
+            <option value="" disabled selected>Pihak Medis</option>
+            <option value="dokter">Dokter</option>
+            <option value="bidan">Bidan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nomor Antrian</label>
+          <input
+            class="nomor"
+            type="number"
+            required
+            oninvalid="this.setCustomValidity('Ini harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="button">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Script -->
+    <!-- Icons -->
+    <script>
+      feather.replace();
+    </script>
+    <script>
+      <!-- Hamburger Navbar -->
+      // Toggle class active
+      const navbarNav = document.querySelector(".navbar-nav");
+      // Hamburger menu di clik
+      document.querySelector("#hamburger-menu").onclick = () => {
+        navbarNav.classList.toggle("active");
+      };
+
+      // klik di luar sidebar
+      const hamburger = document.querySelector("#hamburger-menu");
+
+      document.addEventListener("click", function (e) {
+        if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+          navbarNav.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
